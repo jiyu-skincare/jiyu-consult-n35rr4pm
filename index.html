@@ -4691,6 +4691,77 @@ body.browse-mode .gen-cat .course-grid {
 /* ============================================
    STEP 9 — ADD-ON RECOMMENDATIONS（加購建議專屬步驟）
    ============================================ */
+/* 脖子護理：所有課程都主推，放在加購頁最上方的專屬顯眼卡 */
+.neck-highlight {
+  margin: 0 0 20px;
+  padding: 20px 22px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #FFF6EA 0%, #FFEEDC 100%);
+  border: 2px solid rgba(201, 138, 78, 0.55);
+  box-shadow: 0 4px 16px rgba(201, 138, 78, 0.14);
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+.neck-highlight:hover, .neck-highlight:active {
+  border-color: rgba(201, 138, 78, 0.9);
+  box-shadow: 0 6px 22px rgba(201, 138, 78, 0.22);
+}
+.neck-highlight.picked {
+  background: linear-gradient(135deg, #F3F7EE 0%, #E9F0E0 100%);
+  border-color: var(--sage);
+}
+.neck-highlight-tag {
+  display: inline-block;
+  font-family: var(--serif);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: #A8703A;
+  background: rgba(255,255,255,0.75);
+  padding: 4px 11px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.neck-highlight.picked .neck-highlight-tag { color: var(--sage); }
+.neck-highlight-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.neck-highlight-name {
+  font-family: var(--serif);
+  font-size: 21px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.neck-highlight-price {
+  font-family: var(--display);
+  font-size: 26px;
+  font-weight: 500;
+  color: #A8703A;
+  white-space: nowrap;
+}
+.neck-highlight.picked .neck-highlight-price { color: var(--sage); }
+.neck-highlight-desc {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--ink-soft);
+  margin-top: 9px;
+  letter-spacing: 0.02em;
+}
+.neck-highlight-action {
+  margin-top: 13px;
+  font-family: var(--serif);
+  font-size: 13.5px;
+  letter-spacing: 0.08em;
+  color: #A8703A;
+}
+.neck-highlight.picked .neck-highlight-action { color: var(--sage); font-weight: 600; }
 .addon-section-block {
   margin-bottom: 28px;
   flex-shrink: 0;
@@ -10136,6 +10207,7 @@ function renderAddonRecommendStep() {
     if (a.id === 'addon_mts' && basePrice >= 2880) return false;
     if (isAcutePhase && HARSH_ADDONS.indexOf(a.id) !== -1) return false;
     if (lymphIncluded && a.id === 'addon_lymph') return false;
+    if (a.id === 'addon_neck' && !isAcutePhase) return false;  // 已在最上方專屬卡顯示，下方不重複
     if (a.onlyFor && a.onlyFor.length) {
       return a.onlyFor.indexOf(effectiveService) !== -1;
     }
@@ -10284,6 +10356,21 @@ function renderAddonRecommendStep() {
     html += `<div style="margin:0 0 16px;padding:14px 16px;border-radius:14px;background:rgba(0,0,0,0.025);border:1px solid rgba(0,0,0,0.08);">
       <div style="font-size:12px;letter-spacing:.06em;color:var(--ink-soft);margin-bottom:5px;">今日方案合計</div>
       <div style="font-size:15px;color:var(--ink);line-height:1.5;">本次課程 <b>NT$ ${basePrice.toLocaleString()}</b> + 加購 <b>NT$ ${addedTotal.toLocaleString()}</b> ＝ <b style="color:var(--accent);font-size:18px;">NT$ ${currentTicket.toLocaleString()}</b></div>
+    </div>`;
+  }
+
+  // 脖子護理：不分課程一律主推，放在加購頁最上方（急性期除外）
+  const neckItem = CONFIG.generalAddons.find(a => a.id === 'addon_neck');
+  if (neckItem && !isAcutePhase) {
+    const neckPicked = state.addonsSelected.has('addon_neck');
+    html += `<div class="neck-highlight ${neckPicked ? 'picked' : ''}" onclick="toggleAddon('addon_neck'); renderAddonRecommendStep();">
+      <div class="neck-highlight-tag">${neckPicked ? '✓ 已加入本次方案' : '每一堂課都建議搭配'}</div>
+      <div class="neck-highlight-row">
+        <div class="neck-highlight-name">💫 脖子護理</div>
+        <div class="neck-highlight-price">+$${neckItem.price.toLocaleString()}</div>
+      </div>
+      <div class="neck-highlight-desc">臉部做了保養，頸部若沒有同步護理，時間久了容易出現明顯的膚色落差與頸紋。頸部肌膚比臉薄、皮脂腺少，更需要一起照顧。</div>
+      <div class="neck-highlight-action">${neckPicked ? '已加入 · 再點一次可取消' : '點一下加入本次方案 →'}</div>
     </div>`;
   }
 
