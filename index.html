@@ -7150,45 +7150,79 @@ const CONFIG = {
   ],
   // tags: 用來對應推薦邏輯 — sensitive/dry/oily/acne/aging/pigment/redness/barrier/all
   homecare: [
+    // ===== tHermoCEUTICAL 居家保養線（2026-08 全面更換）=====
+    // 四大線：EXO 修護 / Hydra 保濕 / MELA 亮采 / DeAC 淨化
+    // ⚠ 對客品名已避開法規踩線詞（阻黑、淨白、抑菌、濃度數字）
+
     // ===== 潔面 =====
-    { id: 'cl01', name: '雙層維穩潔面乳', cat: '潔面', desc: '油包乳雙重配方 · 溫和低刺激潔面',
-      tags: ['dry', 'aging', 'all', 'barrier'], texture: '乳油質地 · 無緊繃感' },
-    { id: 'cl02', name: '葡糖苷溫和速效潔面露', cat: '潔面', desc: '天然表活劑 · 柔軟泡沫潔面啫喱',
-      tags: ['oily', 'acne', 'all'], texture: '啫喱質地 · 柔軟泡沫' },
+    { id: 'th_cl_exo', name: 'EXO 修護胞體潔面膠', cat: '潔面', desc: '外泌體修護配方 · 低敏溫和清潔',
+      tags: ['sensitive', 'barrier', 'redness'], texture: '凝膠質地 · 洗後不緊繃' },
+    { id: 'th_cl_deac', name: 'DeAC 酸性淨化潔面膠', cat: '潔面', desc: '弱酸性配方 · 清爽控油潔面',
+      tags: ['oily', 'acne'], texture: '凝膠質地 · 洗後清爽' },
+    { id: 'th_cl_snow', name: '白雪綿潔面慕斯', cat: '潔面', desc: '酵素綿密泡沫 · 柔亮角質',
+      tags: ['pigment', 'all', 'dry'], texture: '慕斯泡沫 · 綿密柔滑' },
+    { id: 'th_cl_prime', name: '賦活水能卸妝精華', cat: '潔面', desc: '水性凝膠卸妝 · 無油無皂鹼',
+      tags: ['all', 'sensitive', 'barrier'], texture: '水凝膠 · 不需搓揉' },
 
     // ===== 化妝水 =====
-    { id: 'to01', name: '水合清透化妝水', cat: '化妝水', desc: '水通道蛋白 · 促進後續吸收',
-      tags: ['all', 'dry', 'barrier'], texture: '精華質地 · 強效補水' },
-    { id: 'to02', name: '氨基酸水漾凝露', cat: '化妝水', desc: '天然保濕因子 · SOS 鎮靜補水',
-      tags: ['sensitive', 'dry', 'redness', 'barrier'], texture: '精華凝膠 · 即刻舒緩' },
+    { id: 'th_to_exo', name: 'EXO 修護胞體調理水', cat: '化妝水', desc: '外泌體前導 · 穩定膚況',
+      tags: ['sensitive', 'barrier', 'redness'], texture: '輕盈水感 · 快速吸收' },
+    { id: 'th_to_hydra', name: '水能精華泡泡水', cat: '化妝水', desc: '四環保濕系統 · 深層補水',
+      tags: ['dry', 'all', 'barrier'], texture: '精華水 · 保濕飽滿' },
+    { id: 'th_to_deac', name: 'DeAC 淨化平衡調理水', cat: '化妝水', desc: '調理油水平衡 · 疏通毛孔',
+      tags: ['oily', 'acne'], texture: '清爽水感 · 不黏膩' },
 
     // ===== 精華 =====
-    { id: 'se01', name: '皮脂膜精華油', cat: '精華', desc: '天然皮脂膜配方 · 形成保護膜',
-      tags: ['dry', 'aging', 'barrier'], oilBased: true, texture: '油質 · 推薦乾性肌' },
-    { id: 'se03', name: '控油祛痘精華素', cat: '精華', desc: '六大祛痘要素 · 專利 AC.NET',
-      tags: ['oily', 'acne'], texture: '高濃縮精華 · 清爽' },
-    { id: 'se04', name: '訂製型安瓶', cat: '精華', desc: '81 種處方客製化搭配膠囊',
-      tags: ['all'], texture: '客製安瓶 · 搭配膠囊' },
+    { id: 'th_se_exo', name: 'EXO 修護胞體精華液', cat: '精華', desc: '外泌體高濃度修護 · 維持肌膚彈潤',
+      tags: ['sensitive', 'barrier', 'aging'], texture: '精華液 · 清爽好吸收' },
+    { id: 'th_se_prime', name: 'EXO 超能微生態修護安瓶', cat: '精華', desc: '微生態平衡 · 強化肌膚自我修護力',
+      tags: ['sensitive', 'barrier', 'redness'], texture: '安瓶 · 集中修護' },
+    { id: 'th_se_hydra', name: 'Max 密集水能精華液', cat: '精華', desc: '四環保濕系統 · 長效鎖水',
+      tags: ['dry', 'all', 'barrier'], texture: '精華液 · 保濕不悶' },
+    { id: 'th_se_mela', name: 'MELA 極光精華', cat: '精華', desc: '均勻膚色 · 提升透亮感',
+      tags: ['pigment'], texture: '精華液 · 清透好推' },
+    { id: 'th_se_20c', name: '20C 煥亮精華', cat: '精華', desc: '純維他命 C 抗氧化 · 無水無油配方',
+      tags: ['pigment', 'aging'], texture: '滴管精華 · 早晚可用' },
+    { id: 'th_se_deac', name: 'DeAC 淨化平衡精華', cat: '精華', desc: '調理粉刺與出油 · 細緻毛孔',
+      tags: ['oily', 'acne'], texture: '精華液 · 清爽滲透' },
 
     // ===== 面霜 =====
-    { id: 'cr01', name: '微晶脂屏障霜', cat: '面霜', desc: '細胞間脂質配方 · 強化屏障',
-      tags: ['sensitive', 'dry', 'barrier', 'redness'], texture: '柔軟不黏膩 · 四季可用' },
-    { id: 'cr02', name: '密集養護晶鑽面霜', cat: '面霜', desc: '5 種肽複合物 · 集中抗衰',
-      tags: ['aging'], texture: '厚潤面霜 · 抗老修護' },
-    { id: 'cr03', name: '水沁冰肌面霜', cat: '面霜', desc: '快速降溫 · 補水鎮靜調節皮脂',
-      tags: ['oily', 'redness', 'sensitive'], texture: '清爽冰涼質地' },
+    { id: 'th_cr_exo', name: 'EXO 修護胞體修護霜', cat: '面霜', desc: '外泌體滋潤修護 · 強化屏障',
+      tags: ['sensitive', 'barrier', 'dry'], texture: '滋潤面霜 · 柔潤不黏' },
+    { id: 'th_cr_cica', name: 'EXO 多效再生霜', cat: '面霜', desc: '積雪草複方 · 舒緩修護',
+      tags: ['sensitive', 'barrier', 'redness'], texture: '輕潤乳霜 · 局部可用' },
+    { id: 'th_cr_hydra', name: 'Max 密集水能霜', cat: '面霜', desc: '四環保濕系統 · 水感鎖水',
+      tags: ['dry', 'all'], texture: '水感面霜 · 清爽保濕' },
+    { id: 'th_cr_mela', name: 'MELA 極光霜', cat: '面霜', desc: '均勻膚色 · 日常提亮保養',
+      tags: ['pigment'], texture: '乳霜 · 滋潤透亮' },
+    { id: 'th_cr_deac', name: 'DeAC 淨化平衡乳', cat: '面霜', desc: '清爽保濕 · 不堵塞毛孔',
+      tags: ['oily', 'acne'], texture: '清爽乳液 · 油肌適用' },
 
     // ===== 眼霜 =====
-    { id: 'ey01', name: '集中修護維他眼霜', cat: '眼霜', desc: '6 種維他命 · 淨化眼周膚色',
-      tags: ['aging'], texture: '眼霜 · 改善暗沉鬆弛' },
+    { id: 'th_ey_exo', name: 'EXO 亮眸緊緻導入眼霜組', cat: '眼霜', desc: '雙劑導入 · 眼周緊緻保養',
+      tags: ['aging'], texture: '眼霜雙劑 · 導入設計' },
 
-    // ===== 維他精華脂（加強型營養油） =====
-    { id: 'vq', name: '維他 Q 精華脂', cat: '維他精華脂', desc: '抗氧化 · 改善皺紋色素',
-      tags: ['aging', 'pigment'], oilBased: true, texture: '精華脂 · 抗衰強化' },
-    { id: 'vd', name: '維他 D 精華脂', cat: '維他精華脂', desc: '強化屏障 · 提高皮膚抵抗力',
-      tags: ['sensitive', 'barrier', 'dry'], oilBased: true, texture: '精華脂 · 屏障強化' },
-    { id: 'vk', name: '維他 K 精華脂', cat: '維他精華脂', desc: '舒緩泛紅 · 毛細血管正常化',
-      tags: ['redness', 'sensitive'], oilBased: true, texture: '精華脂 · 退紅鎮靜' }
+    // ===== 局部加強 =====
+    { id: 'th_sp_spotgel', name: 'DeAC 淨化急效膠', cat: '局部加強', desc: '局部點壓 · 加速代謝',
+      tags: ['acne', 'oily'], texture: '透明凝膠 · 局部使用' },
+    { id: 'th_sp_tyro', name: 'MELA 定位修護膏', cat: '局部加強', desc: '局部加強 · 針對深色區域',
+      tags: ['pigment'], texture: '膏狀 · 定點厚敷' },
+    { id: 'th_sp_sos', name: 'SOS 極效修護凝膠', cat: '局部加強', desc: '急性泛紅舒緩 · 鎮靜降溫',
+      tags: ['sensitive', 'redness', 'barrier'], texture: '冰涼凝膠 · 急救用' },
+    { id: 'th_sp_mist', name: '極效修護舒敏噴霧', cat: '局部加強', desc: '隨身補水舒緩 · 外出必備',
+      tags: ['sensitive', 'redness', 'barrier'], texture: '噴霧 · 細緻水霧' },
+
+    // ===== 面膜 =====
+    { id: 'th_mk_regenic', name: '海洋蛋白修護面膜', cat: '面膜', desc: '海洋蛋白修護 · 每週加強保濕',
+      tags: ['dry', 'barrier', 'all'], texture: '面膜 · 一週 1-2 次' },
+
+    // ===== 防曬・底妝 =====
+    { id: 'th_sun_90', name: '90 純植光盾防曬乳', cat: '防曬・底妝', desc: '純植物性防曬 · 洗面乳即可洗淨',
+      tags: ['all', 'sensitive', 'pigment'], texture: '清爽凝乳 · 不泛白' },
+    { id: 'th_bb_cushion', name: 'EXO 耀光氣墊', cat: '防曬・底妝', desc: '保養型氣墊 · 自然光澤妝感',
+      tags: ['all'], texture: '氣墊粉底 · 服貼輕透' },
+    { id: 'th_bb_bb', name: '亮采隔離 BB 霜', cat: '防曬・底妝', desc: '修飾膚色 · 日常隔離',
+      tags: ['all', 'pigment'], texture: 'BB 霜 · 輕透修飾' }
   ],
 
   // 定製膠囊（獨立顯示於推薦頁）
@@ -11174,7 +11208,8 @@ function getHomecareFlowsForReport() {
     '潔面': '溫和潔面',
     '化妝水': '化妝水',
     '精華': '修護精華',
-    '面霜': '屏障面霜'
+    '面霜': '屏障面霜',
+    '防曬・底妝': '防曬'
   };
   const stepName = (cat) => byCat[cat] || fallback[cat] || cat;
 
@@ -11183,7 +11218,7 @@ function getHomecareFlowsForReport() {
     stepName('化妝水'),
     stepName('精華'),
     stepName('面霜'),
-    '防曬'
+    stepName('防曬・底妝')
   ].join(' → ');
 
   const evening = [
