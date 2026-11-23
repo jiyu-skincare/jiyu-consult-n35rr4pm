@@ -2354,6 +2354,19 @@ body {
   min-width: 0;
 }
 
+.hc-item-brand {
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  opacity: 0.8;
+  margin-bottom: 3px;
+  padding-right: 38px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .hc-item-name {
   font-family: var(--serif);
   font-size: 13px;
@@ -7155,74 +7168,111 @@ const CONFIG = {
     // ⚠ 對客品名已避開法規踩線詞（阻黑、淨白、抑菌、濃度數字）
 
     // ===== 潔面 =====
-    { id: 'th_cl_exo', name: 'EXO 修護胞體潔面膠', cat: '潔面', desc: '外泌體修護配方 · 低敏溫和清潔',
+    { id: 'th_cl_exo', brand: 'tHermoCEUTICAL', name: 'EXO 修護胞體潔面膠', cat: '潔面', desc: '外泌體修護配方 · 低敏溫和清潔',
       tags: ['sensitive', 'barrier', 'redness'], texture: '凝膠質地 · 洗後不緊繃' },
-    { id: 'th_cl_deac', name: 'DeAC 酸性淨化潔面膠', cat: '潔面', desc: '弱酸性配方 · 清爽控油潔面',
+    { id: 'th_cl_deac', brand: 'tHermoCEUTICAL', name: 'DeAC 酸性淨化潔面膠', cat: '潔面', desc: '弱酸性配方 · 清爽控油潔面',
       tags: ['oily', 'acne'], texture: '凝膠質地 · 洗後清爽' },
-    { id: 'th_cl_snow', name: '白雪綿潔面慕斯', cat: '潔面', desc: '酵素綿密泡沫 · 柔亮角質',
+    { id: 'th_cl_snow', brand: 'tHermoCEUTICAL', name: '白雪綿潔面慕斯', cat: '潔面', desc: '酵素綿密泡沫 · 柔亮角質',
       tags: ['pigment', 'all', 'dry'], texture: '慕斯泡沫 · 綿密柔滑' },
-    { id: 'th_cl_prime', name: '賦活水能卸妝精華', cat: '潔面', desc: '水性凝膠卸妝 · 無油無皂鹼',
+    { id: 'th_cl_prime', brand: 'tHermoCEUTICAL', name: '賦活水能卸妝精華', cat: '潔面', desc: '水性凝膠卸妝 · 無油無皂鹼',
       tags: ['all', 'sensitive', 'barrier'], texture: '水凝膠 · 不需搓揉' },
 
     // ===== 化妝水 =====
-    { id: 'th_to_exo', name: 'EXO 修護胞體調理水', cat: '化妝水', desc: '外泌體前導 · 穩定膚況',
+    { id: 'th_to_exo', brand: 'tHermoCEUTICAL', name: 'EXO 修護胞體調理水', cat: '化妝水', desc: '外泌體前導 · 穩定膚況',
       tags: ['sensitive', 'barrier', 'redness'], texture: '輕盈水感 · 快速吸收' },
-    { id: 'th_to_hydra', name: '水能精華泡泡水', cat: '化妝水', desc: '四環保濕系統 · 深層補水',
+    { id: 'th_to_hydra', brand: 'tHermoCEUTICAL', name: '水能精華泡泡水', cat: '化妝水', desc: '四環保濕系統 · 深層補水',
       tags: ['dry', 'all', 'barrier'], texture: '精華水 · 保濕飽滿' },
-    { id: 'th_to_deac', name: 'DeAC 淨化平衡調理水', cat: '化妝水', desc: '調理油水平衡 · 疏通毛孔',
+    { id: 'th_to_deac', brand: 'tHermoCEUTICAL', name: 'DeAC 淨化平衡調理水', cat: '化妝水', desc: '調理油水平衡 · 疏通毛孔',
       tags: ['oily', 'acne'], texture: '清爽水感 · 不黏膩' },
 
     // ===== 精華 =====
-    { id: 'th_se_exo', name: 'EXO 修護胞體精華液', cat: '精華', desc: '外泌體高濃度修護 · 維持肌膚彈潤',
+    { id: 'th_se_exo', brand: 'tHermoCEUTICAL', name: 'EXO 修護胞體精華液', cat: '精華', desc: '外泌體高濃度修護 · 維持肌膚彈潤',
       tags: ['sensitive', 'barrier', 'aging'], texture: '精華液 · 清爽好吸收' },
-    { id: 'th_se_prime', name: 'EXO 超能微生態修護安瓶', cat: '精華', desc: '微生態平衡 · 強化肌膚自我修護力',
+    { id: 'th_se_prime', brand: 'tHermoCEUTICAL', name: 'EXO 超能微生態修護安瓶', cat: '精華', desc: '微生態平衡 · 強化肌膚自我修護力',
       tags: ['sensitive', 'barrier', 'redness'], texture: '安瓶 · 集中修護' },
-    { id: 'th_se_hydra', name: 'Max 密集水能精華液', cat: '精華', desc: '四環保濕系統 · 長效鎖水',
+    { id: 'th_se_hydra', brand: 'tHermoCEUTICAL', name: 'Max 密集水能精華液', cat: '精華', desc: '四環保濕系統 · 長效鎖水',
       tags: ['dry', 'all', 'barrier'], texture: '精華液 · 保濕不悶' },
-    { id: 'th_se_mela', name: 'MELA 極光精華', cat: '精華', desc: '均勻膚色 · 提升透亮感',
+    { id: 'th_se_mela', brand: 'tHermoCEUTICAL', name: 'MELA 極光精華', cat: '精華', desc: '均勻膚色 · 提升透亮感',
       tags: ['pigment'], texture: '精華液 · 清透好推' },
-    { id: 'th_se_20c', name: '20C 煥亮精華', cat: '精華', desc: '純維他命 C 抗氧化 · 無水無油配方',
+    { id: 'th_se_20c', brand: 'tHermoCEUTICAL', name: '20C 煥亮精華', cat: '精華', desc: '純維他命 C 抗氧化 · 無水無油配方',
       tags: ['pigment', 'aging'], texture: '滴管精華 · 早晚可用' },
-    { id: 'th_se_deac', name: 'DeAC 淨化平衡精華', cat: '精華', desc: '調理粉刺與出油 · 細緻毛孔',
+    { id: 'th_se_deac', brand: 'tHermoCEUTICAL', name: 'DeAC 淨化平衡精華', cat: '精華', desc: '調理粉刺與出油 · 細緻毛孔',
       tags: ['oily', 'acne'], texture: '精華液 · 清爽滲透' },
 
     // ===== 面霜 =====
-    { id: 'th_cr_exo', name: 'EXO 修護胞體修護霜', cat: '面霜', desc: '外泌體滋潤修護 · 強化屏障',
+    { id: 'th_cr_exo', brand: 'tHermoCEUTICAL', name: 'EXO 修護胞體修護霜', cat: '面霜', desc: '外泌體滋潤修護 · 強化屏障',
       tags: ['sensitive', 'barrier', 'dry'], texture: '滋潤面霜 · 柔潤不黏' },
-    { id: 'th_cr_cica', name: 'EXO 多效再生霜', cat: '面霜', desc: '積雪草複方 · 舒緩修護',
+    { id: 'th_cr_cica', brand: 'tHermoCEUTICAL', name: 'EXO 多效再生霜', cat: '面霜', desc: '積雪草複方 · 舒緩修護',
       tags: ['sensitive', 'barrier', 'redness'], texture: '輕潤乳霜 · 局部可用' },
-    { id: 'th_cr_hydra', name: 'Max 密集水能霜', cat: '面霜', desc: '四環保濕系統 · 水感鎖水',
+    { id: 'th_cr_hydra', brand: 'tHermoCEUTICAL', name: 'Max 密集水能霜', cat: '面霜', desc: '四環保濕系統 · 水感鎖水',
       tags: ['dry', 'all'], texture: '水感面霜 · 清爽保濕' },
-    { id: 'th_cr_mela', name: 'MELA 極光霜', cat: '面霜', desc: '均勻膚色 · 日常提亮保養',
+    { id: 'th_cr_mela', brand: 'tHermoCEUTICAL', name: 'MELA 極光霜', cat: '面霜', desc: '均勻膚色 · 日常提亮保養',
       tags: ['pigment'], texture: '乳霜 · 滋潤透亮' },
-    { id: 'th_cr_deac', name: 'DeAC 淨化平衡乳', cat: '面霜', desc: '清爽保濕 · 不堵塞毛孔',
+    { id: 'th_cr_deac', brand: 'tHermoCEUTICAL', name: 'DeAC 淨化平衡乳', cat: '面霜', desc: '清爽保濕 · 不堵塞毛孔',
       tags: ['oily', 'acne'], texture: '清爽乳液 · 油肌適用' },
 
     // ===== 眼霜 =====
-    { id: 'th_ey_exo', name: 'EXO 亮眸緊緻導入眼霜組', cat: '眼霜', desc: '雙劑導入 · 眼周緊緻保養',
+    { id: 'th_ey_exo', brand: 'tHermoCEUTICAL', name: 'EXO 亮眸緊緻導入眼霜組', cat: '眼霜', desc: '雙劑導入 · 眼周緊緻保養',
       tags: ['aging'], texture: '眼霜雙劑 · 導入設計' },
 
     // ===== 局部加強 =====
-    { id: 'th_sp_spotgel', name: 'DeAC 淨化急效膠', cat: '局部加強', desc: '局部點壓 · 加速代謝',
+    { id: 'th_sp_spotgel', brand: 'tHermoCEUTICAL', name: 'DeAC 淨化急效膠', cat: '局部加強', desc: '局部點壓 · 加速代謝',
       tags: ['acne', 'oily'], texture: '透明凝膠 · 局部使用' },
-    { id: 'th_sp_tyro', name: 'MELA 定位修護膏', cat: '局部加強', desc: '局部加強 · 針對深色區域',
+    { id: 'th_sp_tyro', brand: 'tHermoCEUTICAL', name: 'MELA 定位修護膏', cat: '局部加強', desc: '局部加強 · 針對深色區域',
       tags: ['pigment'], texture: '膏狀 · 定點厚敷' },
-    { id: 'th_sp_sos', name: 'SOS 極效修護凝膠', cat: '局部加強', desc: '急性泛紅舒緩 · 鎮靜降溫',
+    { id: 'th_sp_sos', brand: 'tHermoCEUTICAL', name: 'SOS 極效修護凝膠', cat: '局部加強', desc: '急性泛紅舒緩 · 鎮靜降溫',
       tags: ['sensitive', 'redness', 'barrier'], texture: '冰涼凝膠 · 急救用' },
-    { id: 'th_sp_mist', name: '極效修護舒敏噴霧', cat: '局部加強', desc: '隨身補水舒緩 · 外出必備',
+    { id: 'th_sp_mist', brand: 'tHermoCEUTICAL', name: '極效修護舒敏噴霧', cat: '局部加強', desc: '隨身補水舒緩 · 外出必備',
       tags: ['sensitive', 'redness', 'barrier'], texture: '噴霧 · 細緻水霧' },
 
     // ===== 面膜 =====
-    { id: 'th_mk_regenic', name: '海洋蛋白修護面膜', cat: '面膜', desc: '海洋蛋白修護 · 每週加強保濕',
+    { id: 'th_mk_regenic', brand: 'tHermoCEUTICAL', name: '海洋蛋白修護面膜', cat: '面膜', desc: '海洋蛋白修護 · 每週加強保濕',
       tags: ['dry', 'barrier', 'all'], texture: '面膜 · 一週 1-2 次' },
 
     // ===== 防曬・底妝 =====
-    { id: 'th_sun_90', name: '90 純植光盾防曬乳', cat: '防曬・底妝', desc: '純植物性防曬 · 洗面乳即可洗淨',
+    { id: 'th_sun_90', brand: 'tHermoCEUTICAL', name: '90 純植光盾防曬乳', cat: '防曬・底妝', desc: '純植物性防曬 · 洗面乳即可洗淨',
       tags: ['all', 'sensitive', 'pigment'], texture: '清爽凝乳 · 不泛白' },
-    { id: 'th_bb_cushion', name: 'EXO 耀光氣墊', cat: '防曬・底妝', desc: '保養型氣墊 · 自然光澤妝感',
+    { id: 'th_bb_cushion', brand: 'tHermoCEUTICAL', name: 'EXO 耀光氣墊', cat: '防曬・底妝', desc: '保養型氣墊 · 自然光澤妝感',
       tags: ['all'], texture: '氣墊粉底 · 服貼輕透' },
-    { id: 'th_bb_bb', name: '亮采隔離 BB 霜', cat: '防曬・底妝', desc: '修飾膚色 · 日常隔離',
-      tags: ['all', 'pigment'], texture: 'BB 霜 · 輕透修飾' }
+    { id: 'th_bb_bb', brand: 'tHermoCEUTICAL', name: '亮采隔離 BB 霜', cat: '防曬・底妝', desc: '修飾膚色 · 日常隔離',
+      tags: ['all', 'pigment'], texture: 'BB 霜 · 輕透修飾' },
+
+    // ===== RERACINE 居家保養線（2026-11 加入）=====
+    // 零售品項依官方價目表「市場價」欄；院內專業組（3D 煥膚組、EXO 安瓶、6 小時禦黑組）不列入居家
+    { id: 'rr_cl_milk', brand: 'RERACINE', name: '益蜂潔面乳', cat: '潔面', desc: '天然界面活性劑 · 60 秒低敏潔顏',
+      tags: ['sensitive', 'barrier', 'all'], texture: '乳霜質地 · 不刺激眼睛' },
+
+    { id: 'rr_to_padding', brand: 'RERACINE', name: '持潤精華水', cat: '化妝水', desc: '功能性精華水 · 可當化妝水或濕敷',
+      tags: ['dry', 'all', 'barrier'], texture: '精華水 · 一瓶三用' },
+    { id: 'rr_to_pad', brand: 'RERACINE', name: '持潤精華棉片', cat: '化妝水', desc: '隨身濕敷棉片 · 外出補水',
+      tags: ['dry', 'all'], texture: '棉片 · 濕敷用（避免來回擦拭）' },
+
+    { id: 'rr_se_aqua', brand: 'RERACINE', name: '微膠囊屏護安瓶', cat: '精華', desc: '微膠囊包覆補水 · 強化屏障',
+      tags: ['dry', 'barrier', 'sensitive'], texture: '安瓶 · 清爽好吸收' },
+    { id: 'rr_se_glaze', brand: 'RERACINE', name: '水瓷光賦活安瓶', cat: '精華', desc: '亮澤賦活安瓶 · 提升透亮感',
+      tags: ['pigment', 'aging', 'all'], texture: '安瓶 · 水感透亮' },
+    { id: 'rr_se_ac', brand: 'RERACINE', name: 'AC 控制精華液', cat: '精華', desc: '調理出油與老廢角質堆積',
+      tags: ['acne', 'oily'], texture: '精華液 · 清爽滲透' },
+
+    { id: 'rr_cr_ha', brand: 'RERACINE', name: '玻尿酸乳霜', cat: '面霜', desc: '三重玻尿酸 · 日間保濕屏障',
+      tags: ['dry', 'all', 'barrier'], texture: '乳霜 · 白天必備' },
+    { id: 'rr_cr_cica', brand: 'RERACINE', name: '修護滋潤霜', cat: '面霜', desc: '夜間加強滋潤 · 肌膚較脆弱時使用',
+      tags: ['sensitive', 'barrier', 'aging'], texture: '滋潤乳霜 · 夜間使用' },
+    { id: 'rr_cr_balm', brand: 'RERACINE', name: '能量填充膏', cat: '面霜', desc: '膏狀質地 · 緊緻彈潤保養',
+      tags: ['aging', 'dry'], texture: '膏狀 · 乾燥暗沉肌適用', oilBased: true },
+
+    { id: 'rr_sp_dcgel', brand: 'RERACINE', name: '控制修復凝膠', cat: '局部加強', desc: '術前術後厚敷 · 鎮靜降溫',
+      tags: ['sensitive', 'redness', 'barrier'], texture: '透明凝膠 · 可厚敷' },
+    { id: 'rr_sp_acspot', brand: 'RERACINE', name: '淨痘修護液', cat: '局部加強', desc: '雙層配方 · 局部點壓使用',
+      tags: ['acne', 'oily'], texture: '雙層液 · 搖勻後點塗' },
+    { id: 'rr_sp_mist', brand: 'RERACINE', name: '琉璃光感噴霧', cat: '局部加強', desc: '隨身噴霧 · 提亮鎖水',
+      tags: ['all', 'pigment', 'dry'], texture: '噴霧 · 隨時可噴' },
+
+    { id: 'rr_mk_algae', brand: 'RERACINE', name: '海藻重啟面膜', cat: '面膜', desc: '海洋深層水海藻 · 降熱感補水',
+      tags: ['sensitive', 'redness', 'dry', 'barrier'], texture: '片狀面膜 · 一週 1-2 次' },
+
+    { id: 'rr_sun_dew', brand: 'RERACINE', name: '潤防曬精華液', cat: '防曬・底妝', desc: '益生菌防曬精華 · 輕盈可疊擦',
+      tags: ['all', 'sensitive', 'pigment'], texture: '精華質地 · 不厚重' }
   ],
 
   // 定製膠囊（獨立顯示於推薦頁）
@@ -10586,10 +10636,6 @@ function renderHomecare() {
     categories[p.cat].push(p);
   });
 
-  // Always show all 9 capsules — let staff choose which to pair for home care
-  // Matching ones will get the "推薦" badge below
-  const capsulesToShow = CONFIG.capsules;
-
   let html = '';
 
   // Smart recommendation note at top
@@ -10618,6 +10664,7 @@ function renderHomecare() {
         ${recommended ? '<span class="hc-badge">推薦</span>' : ''}
         <div class="hc-item-check"></div>
         <div class="hc-item-body">
+          ${p.brand ? `<div class="hc-item-brand">${p.brand}</div>` : ''}
           <div class="hc-item-name">${p.name}</div>
           <div class="hc-item-desc">${p.desc}</div>
         </div>
@@ -10625,26 +10672,6 @@ function renderHomecare() {
     });
     html += `</div></div>`;
   });
-
-  // Capsules section
-  html += `<div class="hc-cat">
-    <div class="hc-cat-head">定製膠囊 <span class="hc-cat-sub">可搭配化妝水、凝露、安瓶使用</span></div>
-    <div class="hc-items hc-items-capsule">`;
-  capsulesToShow.forEach(cap => {
-    const capId = 'cap_' + cap.id;
-    const selected = state.homecareSelected.has(capId);
-    const recommended = cap.tags.some(t => relevantTags.includes(t)) && relevantTags.length > 0;
-    html += `<button class="hc-item ${selected ? 'selected' : ''} ${recommended ? 'recommended' : ''}"
-      onclick="toggleHomecare('${capId}')">
-      ${recommended ? '<span class="hc-badge">推薦</span>' : ''}
-      <div class="hc-item-check"></div>
-      <div class="hc-item-body">
-        <div class="hc-item-name">${cap.name}</div>
-        <div class="hc-item-desc">${cap.desc}</div>
-      </div>
-    </button>`;
-  });
-  html += `</div></div>`;
 
   c.innerHTML = html;
 }
